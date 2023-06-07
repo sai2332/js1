@@ -1,79 +1,392 @@
-i. open() ii. close() iii. print() iv. stop() v. focus() vi. getInterval(), setInterval().
+Fibonacci sequence up to the given range N
 
-Program:
-<!DOCTYPE html>
-<html>
-<head>
-<script type="text/javascript">
-function printpage()
+import java.util.*;
+class Fibonacci
 {
-window.print()
+public static void main(String args[])
+{
+int f1=0,f2=1,n,i,sum=1;
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter n value: ");
+n=sc.nextInt();
+System.out.println("0");
+System.out.println("1");
+for(i=3;i<=n;i++)
+{
+int f;
+f=f1+f2;
+f1=f2;
+f2=f;
+System.out.println(f);
+if(i%2==0)
+sum=sum+f;
 }
-</script>
-</head>
-<body>
-<h1>The Document Object</h1>
-<h2>The open() Method</h2>
-<button onclick="myFunction()">Try it</button>
-<script>
-function myFunction()
-{document.open();
-document.write("<h1>Hello World</h1>");
-document.close();
+System.out.println("sum of even terms is:"+sum);
 }
-</script>
-<input type="button" value="Print this page" onclick="printpage()" />
-<h1>The Element Object</h1>
-<h2>The focus() and blur() Methods</h2>
-<input type="text" id="myText" value="A text field">
-<p>Click the buttons to give or remove focus from the text field.</p>
-<button type="button" onclick="getFocus()">Get focus</button>
-<button type="button" onclick="loseFocus()">Lose focus</button>
-<script>
-function getFocus()
-{ document.getElementById("myText").focus();
 }
-function loseFocus()
-{ document.getElementById("myText").blur();
+
+                using bubble sort.
+
+import java.util.Scanner;
+class BubbleSort
+{
+public static void main(String []args)
+{
+int num, i, j, temp;
+Scanner input = new Scanner(System.in);
+System.out.println("Enter the number of integers to sort:");
+num = input.nextInt();
+int array[] = new int[num];
+System.out.println("Enter " + num + " integers: ");
+for (i = 0; i < num; i++)
+array[i] = input.nextInt();
+for (i = 0; i < ( num - 1 ); i++)
+{for (j = 0; j < num - i - 1; j++)
+{
+if (array[j] > array[j+1])
+{
+temp = array[j];
+array[j] = array[j+1];
+array[j+1] = temp;
 }
-</script>
-<h1>The Window Object</h1>
-<h2>The setInterval() Method</h2>
-<p id="demo"></p>
-<script>
-setInterval(myTimer, 1000);
-function myTimer() {
-const date = new Date();
-document.getElementById("demo").innerHTML = date.toLocaleTimeString();
 }
-</script>
-</body>
-</html>
+}
+System.out.println("Sorted list of integers:");
+for (i = 0; i < num; i++)
+System.out.println(array[i]);
+}
+}
+
+                      Java program to display the details of a person.
+import java.util.*;
+class Employee
+{
+Scanner sc=new Scanner(System.in);
+int empid;
+double salary;
+String name;
+String qualification;
+String specialization;
+void personal_details()
+{
+System.out.println("enter id");
+empid=sc.nextInt();
+System.out.println("enter name");
+name=sc.next();
+System.out.println("enter salary");
+salary=sc.nextDouble();
+}
+void qualification_details()
+{
+System.out.println("enter qualification");
+qualification=sc.next();
+System.out.println("enter specialization");
+specialization=sc.next();
+}
+void display()
+{
+System.out.println("employee id is:"+empid);
+System.out.println("employee name is:"+name);
+System.out.println("employee salary is:"+salary);
+System.out.println("employee qualification is:"+qualification);
+System.out.println("employee specialization is:"+specialization);
+}
+public static void main(String args[])
+{
+Employee e=new Employee();
+e.personal_details();
+e.qualification_details();
+e.display();
+}
+}
+
+                          constructor and constructor overloading
+import java.util.*;
+class Employee_Constructor
+{
+Scanner sc=new Scanner(System.in);
+int empid;
+String name;
+double salary;
+Employee_Constructor(int id,String nm,double sal)
+{
+empid=id;
+name=nm;
+salary=sal;
+}
+Employee_Constructor(int id,String nm)
+{
+empid=id;
+name=nm;
+System.out.println("enter salary:");salary=sc.nextDouble();
+}
+void display()
+{
+System.out.println("employee id is:"+empid);
+System.out.println("employee name is:"+name);
+System.out.println("employee salary is:"+salary);
+}
+public static void main(String args[])
+{0
+Employee_Constructor e1=new Employee_Constructor(1212,"priya",50000);
+Employee_Constructor e2=new Employee_Constructor(1215,"sri");
+e1.display();
+e2.display();
+}
+}
+
+               sort given set of strings.
+import java.util.*;
+class Sort_String
+{
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter no of strings:");
+int n=sc.nextInt();
+String names[]=new String[n];
+System.out.println("Enter the strings:");
+for(int i=0;i<n;i++)
+{
+names[i]=sc.next();
+}
+for(int i=0;i<n-1;i++)
+{
+for(int j=i+1;j<n;j++)
+{
+if(names[i].compareTo(names[j])>0)
+{
+String temp=names[i];
+names[i]=names[j];
+names[j]=temp;
+}
+}
+}
+System.out.println(Arrays.toString(names));
+}
+}
+
+                         multi-level Inheritance.
+class Parent
+{
+	int x=10;
+	public void displayX()
+	{
+		System.out.println(x);
+	}
+}
+class Child1 extends Parent
+{
+	int y=20;
+	public void displayY()
+	{
+		System.out.println(y);
+	}
+}
+class Child2 extends Child1
+{
+  int z=30;
+  public void displayZ()
+  {
+    System.out.println(z);
+  }
+}
+class MultiLevelInheritance
+{
+  public static void main(String args[])
+	{
+	  Child2 c2=new Child2();
+	  c.displayX();
+	  c.displayY();
+	  c.displayZ();
+	}
+}
+
+              areas of different shapes using abstract classes.
 
 
-i. title ii. url iii. Cookie iv. last modified v. domain vi. ReadyState
-Program:
-<html>
-<body>
-<title>MY TITLE</title>
-<h1>Java Script window object</h1>
-<p id="demo"></p>
-<p id="demo1"></p>
-<p id="demo2"></p>
-<p id="demo3"></p>
-<p id="demo4"></p>
-<p id="demo5"></p>
-<script>
-document.getElementById("demo").innerHTML = document.title;
-let url = document.URL;
-document.getElementById("demo1").innerHTML = url;
-let allCookies = document.cookie;
-document.getElementById("demo2").innerHTML = allCookies;
-let text = document.lastModified;
-document.getElementById("demo3").innerHTML = text;
-let myDomain = document.domain;
-document.getElementById("demo4").innerHTML = myDomain;
-document.getElementById("demo5").innerHTML = document.readyState;
-</script>
-</body>
-</html>
+
+                       super keyword.
+class Vehicle
+{
+int maxSpeed = 120;
+}
+class Car extends Vehicle
+{
+int maxSpeed = 180; void
+display()
+{
+System.out.println("Maximum Speed: "+ super.maxSpeed);
+}
+}
+class Test
+{
+public static void main(String[] args)
+{
+Car small = new Car();
+small.display();
+}
+}
+
+                 exception handling mechanism using multiple catch clauses.
+class Exception
+{
+	public static void main(String args[])
+	{
+		int x=10,y,z=0;
+		try
+		{
+			x=Integer.parseInt(args[0]);
+			y=Integer.parseInt(args[1]);
+			z=x/y;
+		}
+		catch(ArithmeticException ae)
+		{
+			System.out.println("Y value should be non zero");
+			z=x/2;
+		}
+		catch(NumberFormatException nfe)
+		{
+			 System.out.println("Input should be numbers only");
+		}
+		catch(ArrayIndexOutOfBoundsException aoe)
+		{
+			System.out.println("Minimum number of inputs should be 2");
+		}
+		catch (Exception e)
+		{
+			System.out.println("hello");
+		}
+		System.out.println(z);
+		System.out.println("task completed");
+	}
+}
+
+              areas of different shapes using abstract classes
+import java.util.Scanner;
+abstract class Shape
+{
+	int s1,s2;
+	float area;
+	final float pi=3.142f;
+    Scanner sc=new Scanner(System.in);
+	public abstract void get_Input();   //abstract method
+	public abstract void cal_Area();    //abstract method
+	public void showArea()              //non abstract method
+	{
+		System.out.println("Area = "+area);
+	}
+}
+class Rectangle extends Shape
+{
+    public void get_Input()
+	{
+		System.out.println("Enter the Length and Breadth");
+		s1=sc.nextInt();
+		s2=sc.nextInt();
+	}
+	public void cal_Area()
+	{
+		area=s1*s2;
+	}
+}
+class Circle extends Shape
+{
+    public void get_Input()
+	{
+		System.out.println("\nEnter the Radius of the Circle");
+		s1=sc.nextInt();
+	}
+	public void cal_Area()
+	{
+		area=pi*s1*s1;
+	}
+}
+class Mainclass
+{
+   public static void main(String args[])
+	{
+	   Shape s;
+	   s=new Rectangle();
+	   System.out.println("==========================");
+	   System.out.println("Rectangle");
+	   s.get_Input();
+	   s.cal_Area();
+	   s.showArea();
+	   System.out.println("===========================");
+      
+	   s=new Circle();
+	   System.out.println("==========================");
+	   System.out.println("Circle");
+	   s.get_Input();
+	   s.cal_Area();
+	   s.showArea();
+	   System.out.println("===========================");
+	}
+}
+
+                 import and use user defined package
+
+
+
+
+                threads by extending Thread class
+
+class Thread1 extends Thread
+{
+	public void run()
+	{
+		 //Task of Thread1
+		 for(int i=10;i>0;i--)
+			 System.out.println("Child1 "+i);
+	}
+}
+class Thread2 extends Thread
+{
+	public void run()
+	{
+		//Task of Thread2
+		for(int i=0;i<10;i++)
+			System.out.println("Child2 "+i);
+	}
+}
+class Mainclass
+{
+	public static void main(String args[])
+	{
+		Thread1 t1=new Thread1();
+		Thread2 t2=new Thread2();
+		t1.start();
+		t2.start();
+		for(int i=1;i<=10;i++)
+			System.out.println("Main Thread "+(i*i));
+	}
+}
+
+                 Runtime polymorphism (method overriding)
+
+class Parent
+{
+	public void display()
+	{
+		System.out.println("Welcome");
+	}
+}
+class Child extends Parent
+{
+	public void display()
+	{
+		System.out.println("Hi! Good to see you");
+	}
+}
+class Mainclass
+{
+	public static void main(String args[])
+	{
+		Parent p=new Parent();
+		p.display();    // Welcom
+
+		Child c=new Child();
+		c.display();    // Welcome
+	}
+}
