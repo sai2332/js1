@@ -364,29 +364,47 @@ class Mainclass
 }
 
                  Runtime polymorphism (method overriding)
-
-class Parent
+class Shape 
 {
-	public void display()
-	{
-		System.out.println("Welcome");
-	}
-}
-class Child extends Parent
+void draw()
+{ 
+System.out.println("drawing…");
+ } 
+} 
+class Polygon extends Shape 
+{ void draw() 
+{ 
+System.out.println("drawing polygon…."); } 
+} 
+class Rectangle extends Polygon 
+{ 
+void draw() 
+{ 
+System.out.println("drawing rectangle…."); } 
+} 
+class Triangle extends Polygon 
+{ 
+void draw() 
+{ 
+System.out.println("drawing triangle…."); } 
+} 
+class Circle extends Shape 
+{ 
+void draw() 
+{ 
+System.out.println("drawing circle…."); 
+} 
+} 
+class Runtime
+{ 
+	public static void main(String args[]) 
 {
-	public void display()
-	{
-		System.out.println("Hi! Good to see you");
-	}
-}
-class Mainclass
-{
-	public static void main(String args[])
-	{
-		Parent p=new Parent();
-		p.display();    // Welcom
-
-		Child c=new Child();
-		c.display();    // Welcome
-	}
+ Shape s; 
+s=new Rectangle(); 
+s.draw(); 
+s=new Triangle(); 
+s.draw();
+ s=new Circle();
+ s.draw(); 
+} 
 }
